@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiroki Numaguchi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+JP:wght@300;400&family=Noto+Serif+JP:wght@300;400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #0e0e0e;
+  --ink:   #1a1a1a;
+  --mid:   #444;
+  --muted: #777;
+  --rule:  #e2e2de;
+  --bg:    #f9f9f7;
+  --fd: 'Cormorant Garamond', 'Hiragino Mincho ProN', serif;
+  --fb: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+  --fm: 'JetBrains Mono', monospace;
+}
+html { font-size: 15px; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--fb);
+  font-weight: 300;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 3.5rem) clamp(1.2rem, 4vw, 2rem);
+}
+
+.h-photo {
+  width: 100%;
+  aspect-ratio: 3 / 1;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 1.4rem;
+  filter: grayscale(20%);
+}
+
+.h-top { display: flex; align-items: baseline; gap: 1.4rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
+
+.h-name {
+  font-family: var(--fd);
+  font-size: 1.3rem;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  color: var(--black);
+}
+
+.h-name-jp {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--black);
+}
+
+.h-affil {
+  font-size: 0.72rem;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.h-links { display: flex; flex-wrap: wrap; gap: 0.2rem 1.4rem; margin-bottom: 0.7rem; }
+.h-links .h-link-item { display: flex; align-items: baseline; gap: 0.3rem; }
+.h-links a {
+  font-family: var(--fm);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--rule);
+  transition: color 0.15s;
+}
+.h-links a:hover { color: var(--black); border-color: var(--black); }
+.h-link-val {
+  font-family: var(--fm);
+  font-size: 0.58rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+.h-kw {
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+/* Section */
+.sec { margin-bottom: 1.6rem; }
+
+.sec-label {
+  font-family: var(--fm);
+  font-size: 0.52rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.sec-label::after { content: ''; flex: 1; height: 0.5px; background: var(--rule); }
+
+/* Keywords */
+.kw-list { display: flex; flex-wrap: wrap; gap: 0.28rem; }
+.kw {
+  font-family: var(--fm);
+  font-size: 0.52rem;
+  letter-spacing: 0.04em;
+  border: 0.5px solid var(--rule);
+  padding: 0.18rem 0.45rem;
+  color: var(--mid);
+}
+
+/* CV Row */
+.cv-row {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 0 1rem;
+  margin-bottom: 0.65rem;
+}
+.cv-row:last-child { margin-bottom: 0; }
+
+.cv-date {
+  font-family: var(--fm);
+  font-size: 0.5rem;
+  color: var(--muted);
+  padding-top: 0.15rem;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+.cv-title { font-size: 0.78rem; font-weight: 400; color: var(--black); line-height: 1.6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cv-sub { font-size: 0.65rem; color: var(--mid); margin-top: 0.15rem; line-height: 1.6; }
+
+.badge {
+  display: inline-block;
+  font-family: var(--fm);
+  font-size: 0.48rem;
+  letter-spacing: 0.07em;
+  border: 0.5px solid var(--rule);
+  padding: 0.08rem 0.38rem;
+  color: var(--muted);
+  margin-left: 0.35rem;
+  vertical-align: middle;
+  position: relative; top: -1px;
+}
+
+/* Paper */
+.paper-item {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 0 1rem;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 0.5px solid var(--rule);
+}
+.paper-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.paper-year {
+  font-family: var(--fm);
+  font-size: 0.5rem;
+  color: var(--muted);
+  padding-top: 0.15rem;
+  letter-spacing: 0.02em;
+}
+.paper-title {
+  font-family: var(--fd);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 0.22rem;
+}
+.paper-title a { color: var(--black); text-decoration: none; border-bottom: 0.5px solid var(--rule); }
+.paper-title a:hover { border-color: var(--black); }
+.paper-authors { font-size: 0.68rem; color: var(--mid); }
+.paper-meta {
+  font-size: 0.62rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+  line-height: 1.5;
+}
+
+/* More link */
+.more-link {
+  display: inline-block;
+  margin-top: 0.7rem;
+  font-family: var(--fm);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--rule);
+  padding-bottom: 1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.more-link:hover { color: var(--black); border-color: var(--black); }
+
+.sec-more {
+  font-family: var(--fm);
+  font-size: 0.5rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--rule);
+  text-transform: none;
+  white-space: nowrap;
+  order: 3;
+  transition: color 0.15s, border-color 0.15s;
+}
+.sec-more:hover { color: var(--black); border-color: var(--black); }
+.sec-label::after { order: 2; }
+.sec-selected {
+  font-family: var(--fm);
+  font-size: 0.48rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  border: 0.5px solid var(--rule);
+  padding: 0.1rem 0.4rem;
+  text-transform: none;
+  vertical-align: middle;
+}
+
+/* Works */
+.work-row {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 0 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 0.5px solid var(--rule);
+  align-items: baseline;
+}
+.work-row:first-of-type { border-top: 0.5px solid var(--rule); }
+.work-year { font-family: var(--fm); font-size: 0.5rem; color: var(--muted); letter-spacing: 0.02em; }
+.work-title { font-size: 0.82rem; font-weight: 400; color: var(--ink); }
+.work-meta { font-size: 0.65rem; color: var(--muted); margin-top: 0.05rem; }
+
+/* Footer */
+footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 0.5px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem; }
+.footer-txt { font-family: var(--fm); font-size: 0.55rem; letter-spacing: 0.1em; color: var(--muted); }
+
+@media (max-width: 600px) {
+  .cv-row,
+  .paper-item { grid-template-columns: 1fr; gap: 0; }
+  .cv-date,
+  .paper-year { padding-top: 0; margin-bottom: 0.1rem; }
+  html { font-size: 13.5px; }
+  .cv-title { white-space: normal; font-size: 0.72rem; }
+  .cv-sub { font-size: 0.6rem; }
+  .paper-title { font-size: 0.85rem; }
+  .paper-meta { font-size: 0.56rem; }
+  .paper-authors { font-size: 0.62rem; }
+  .badge { display: none; }
+  .h-name, .h-name-jp { font-size: 1.15rem; }
+  .h-links a { word-break: break-all; }
+  .work-row { grid-template-columns: 1fr; }
+  .work-row > div { display: block; }
+  .work-title { font-size: 0.75rem; }
+  .work-meta { display: block; margin-top: 0.1rem; font-size: 0.6rem; }
+  .work-year { margin-bottom: 0.1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<img class="h-photo" src="miura-sea.jpg" alt="Photo of Sea of Miura Peninsula, taken by Hiroki Numaguchi">
+
+<header>
+  <div class="h-top">
+    <h1 class="h-name-jp">沼口 寛樹</h1>
+    <span class="h-name">&mdash;&nbsp; Numaguchi Hiroki</span>
+  </div>
+  <nav class="h-links">
+    <span class="h-link-item">
+      <a href="https://researchmap.jp/hnumaguchi" target="_blank" rel="noopener">researchmap.jp/hnumaguchi</a>
+    </span>
+    <span class="h-link-item">
+      <a href="https://orcid.org/0009-0005-1091-4935" target="_blank" rel="noopener">orcid.org/0009-0005-1091-4935</a>
+    </span>
+  </nav>
+</header>
+
+<div class="sec">
+  <p class="sec-label">Education</p>
+
+  <div class="cv-row">
+    <span class="cv-date">2024.4 &ndash;</span>
+    <div>
+      <p class="cv-title">名古屋大学 大学院情報学研究科 数理情報学専攻 博士後期課程</p>
+      <p class="cv-sub">Ph.D. Student, Dept. of Mathematical Informatics, Graduate School of Informatics, Nagoya University</p>
+    </div>
+  </div>
+  <div class="cv-row">
+    <span class="cv-date">2022.4 &ndash; 2024.3</span>
+    <div>
+      <p class="cv-title">東京理科大学 大学院理学研究科 応用数学専攻 修士課程</p>
+      <p class="cv-sub">M.S. in Applied Mathematics, Graduate School of Science, Tokyo University of Science</p>
+    </div>
+  </div>
+  <div class="cv-row">
+    <span class="cv-date">2018.4 &ndash; 2022.3</span>
+    <div>
+      <p class="cv-title">東京理科大学 理学部第一部 応用数学科</p>
+      <p class="cv-sub">B.S. in Applied Mathematics, Faculty of Science Division I, Tokyo University of Science</p>
+    </div>
+  </div>
+  <div class="cv-row">
+    <span class="cv-date">2014.4 &ndash; 2017.3</span>
+    <div><p class="cv-title">東京都立日比谷高等学校</p></div>
+  </div>
+</div>
+
+<div class="sec">
+  <p class="sec-label">Fellowships &amp; Awards</p>
+  <div class="cv-row">
+    <span class="cv-date">2024.4 &ndash; 2027.3</span>
+    <div>
+      <p class="cv-title">TokAI BOOST：東海国立大学機構 名古屋大学 次世代AI人材育成事業</p>
+      <p class="cv-sub"><span style="font-size:0.6rem;">JST 国家戦略分野の若手研究者及び博士後期課程学生の育成事業 次世代AI人材育成プログラム<span style="display:inline-block">（博士後期課程学生支援）</span></span><br><span style="font-size:0.58rem;color:var(--muted);">TokAI BOOST: THERS Nagoya University, Program for Fostering Next Generation AI Professionals</span></p>
+    </div>
+  </div>
+  <div class="cv-row">
+    <span class="cv-date">2024.6</span>
+    <div>
+      <p class="cv-title">日本学生支援機構 第一種奨学金 特に優れた業績による返還免除（全額免除）</p>
+      <p class="cv-sub">JASSO Type I Scholarship, Full Exemption from Repayment for Outstanding Achievement</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <p class="sec-label">Publications (selected) <a class="sec-more" href="https://researchmap.jp/hnumaguchi/published_papers" target="_blank" rel="noopener">all (researchmap) &rarr;</a></p>
+
+  <div class="paper-item">
+    <span class="paper-year">2024</span>
+    <div>
+      <p class="paper-title">
+        <a href="https://doi.org/10.1016/j.dam.2023.11.037" target="_blank" rel="noopener">Two-machine job-shop scheduling with one joint job</a>
+      </p>
+      <p class="paper-meta">Hiroki Numaguchi, Wei Wu, Yannan Hu<br>Discrete Applied Mathematics, vol. 346, pp. 30&ndash;43 &nbsp;&middot;&nbsp; <a href="https://doi.org/10.1016/j.dam.2023.11.037" target="_blank" rel="noopener" style="color:inherit;border-bottom:0.5px solid var(--rule);">DOI: 10.1016/j.dam.2023.11.037</a></p>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <span class="paper-year">2025</span>
+    <div>
+      <p class="paper-title"><a href="https://doi.org/10.1016/j.tcs.2024.114910" target="_blank" rel="noopener">Packing squares independently</a></p>
+      <p class="paper-meta">Wei Wu, Hiroki Numaguchi, Nir Halman, Yannan Hu, Mutsunori Yagiura<br>Theoretical Computer Science, vol. 1024, 114910 &nbsp;&middot;&nbsp; <a href="https://doi.org/10.1016/j.tcs.2024.114910" target="_blank" rel="noopener" style="color:inherit;border-bottom:0.5px solid var(--rule);">DOI: 10.1016/j.tcs.2024.114910</a></p>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <p class="sec-label">Presentations (selected) <a class="sec-more" href="https://researchmap.jp/hnumaguchi/presentations" target="_blank" rel="noopener">all (researchmap) &rarr;</a></p>
+
+  <div class="cv-row">
+    <span class="cv-date">2026.3</span>
+    <div>
+      <p class="cv-title">総積卸し時間最小化を目的とするキャリアカー積載計画問題に対する厳密解法</p>
+      <p class="cv-sub">浅野翼, 沼口寛樹, 高田陽介, 柳浦睦憲 &nbsp;&middot;&nbsp; 日本オペレーションズ・リサーチ学会 2026年春季大会</p>
+    </div>
+  </div>
+
+  <div class="cv-row">
+    <span class="cv-date">2025.3</span>
+    <div>
+      <p class="cv-title">グループ化を考慮した二次元ストリップパッキング問題</p>
+      <p class="cv-sub">任偉林, 沼口寛樹, 胡艶楠, 橋本英樹 &nbsp;&middot;&nbsp; 日本オペレーションズ・リサーチ学会 2025年春季研究発表会</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <p class="sec-label">Qualifications</p>
+  <div class="cv-row">
+    <span class="cv-date">2025.11</span>
+    <div><p class="cv-title">Duolingo English Test &nbsp; 105 &nbsp; <span style="font-weight:300;color:var(--mid);">CEFR B2</span></p></div>
+  </div>
+</div>
+
+<div class="sec">
+  <p class="sec-label">Works</p>
+  <div class="work-row">
+    <span class="work-year">2014</span>
+    <div>
+      <span class="work-title">Five Dreamers</span>
+      <span class="work-meta">&nbsp;·&nbsp; 監督・撮影・編集 &nbsp;·&nbsp; 26min &nbsp;·&nbsp; 10代の映画祭, アップリンク渋谷</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-txt">Hiroki Numaguchi</span>
+  <span class="footer-txt">Updated April 2026</span>
