@@ -4,17 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hiroki Numaguchi</title>
+<meta name="description" content="Hiroki Numaguchi (沼口寛樹) — Ph.D. student in Mathematical Informatics at Nagoya University. Research interests: combinatorial optimization, scheduling, packing.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+JP:wght@300;400&family=Noto+Serif+JP:wght@300;400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+JP:wght@300;400&family=Noto+Serif+JP:wght@300;400&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+JP:wght@300;400&family=Noto+Serif+JP:wght@300;400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"></noscript>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --black: #0e0e0e;
   --ink:   #1a1a1a;
   --mid:   #444;
-  --muted: #777;
+  --muted: #636363;
   --rule:  #e2e2de;
   --bg:    #f9f9f7;
   --fd: 'Cormorant Garamond', 'Hiragino Mincho ProN', serif;
@@ -36,12 +38,12 @@ body {
   padding: clamp(2rem, 6vw, 3.5rem) clamp(1.2rem, 4vw, 2rem);
 }
 
+picture { display: block; margin-bottom: 1.4rem; }
 .h-photo {
   width: 100%;
   aspect-ratio: 3 / 1;
   object-fit: cover;
   display: block;
-  margin-bottom: 1.4rem;
   filter: grayscale(20%);
 }
 
@@ -272,9 +274,12 @@ footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 0.5px solid var(--ru
 </style>
 </head>
 <body>
-<div class="wrap">
+<main class="wrap">
 
-<img class="h-photo" src="miura-sea.jpg" alt="Photo of Sea of Miura Peninsula, taken by Hiroki Numaguchi">
+<picture>
+  <source srcset="miura-sea.webp" type="image/webp">
+  <img class="h-photo" src="miura-sea.jpg" alt="Photo of Sea of Miura Peninsula, taken by Hiroki Numaguchi" fetchpriority="high">
+</picture>
 
 <header>
   <div class="h-top">
@@ -340,7 +345,7 @@ footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 0.5px solid var(--ru
 </div>
 
 <div class="sec">
-  <p class="sec-label">Publications (selected) <a class="sec-more" href="https://researchmap.jp/hnumaguchi/published_papers" target="_blank" rel="noopener">all (researchmap) &rarr;</a></p>
+  <p class="sec-label">Publications (selected) <a class="sec-more" href="https://researchmap.jp/hnumaguchi/published_papers" target="_blank" rel="noopener">all (researchmap/publications) &rarr;</a></p>
 
   <div class="paper-item">
     <span class="paper-year">2024</span>
@@ -362,7 +367,7 @@ footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 0.5px solid var(--ru
 </div>
 
 <div class="sec">
-  <p class="sec-label">Presentations (selected) <a class="sec-more" href="https://researchmap.jp/hnumaguchi/presentations" target="_blank" rel="noopener">all (researchmap) &rarr;</a></p>
+  <p class="sec-label">Presentations (selected) <a class="sec-more" href="https://researchmap.jp/hnumaguchi/presentations" target="_blank" rel="noopener">all (researchmap/presentations) &rarr;</a></p>
 
   <div class="cv-row">
     <span class="cv-date">2026.3</span>
@@ -402,4 +407,8 @@ footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 0.5px solid var(--ru
 
 <footer>
   <span class="footer-txt">Hiroki Numaguchi</span>
-  <span class="footer-txt">Updated April 2026</span>
+  <span class="footer-txt">Updated April 2026</span></footer>
+
+</main>
+</body>
+</html>
